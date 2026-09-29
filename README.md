@@ -122,9 +122,9 @@ The sample does not use that package. Open `DocumentReader.xcodeproj`.
 
 The code below shows how to use the license:
 
-https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/c096569931cca79433cac4904099f2c08f44192d/DocumentReader/ViewController.swift#L10-L12
+https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/af362d5a2770bbf335b043462232132dadee1faf/DocumentReader/ViewController.swift#L10-L12
 
-https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/c096569931cca79433cac4904099f2c08f44192d/DocumentReader/ViewController.swift#L212-L216
+https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/af362d5a2770bbf335b043462232132dadee1faf/DocumentReader/ViewController.swift#L212-L216
 
 Please [contact us](#-contact) to get a license for **your own app**.
 
