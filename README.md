@@ -24,13 +24,13 @@
 
 ## <img src="https://api.iconify.design/lucide/clipboard-list.svg?color=%230F766E" width="24" height="24" alt="" /> Basics
 
-Read this once before cloning. Mobile demos ship a **bundled license** for the sample application / bundle id. Production apps need a new key from Identixia. [Initial commands](#-initial-commands) lists clone → run → activate. The sample Xcode project links the frameworks already beside it. Your app adds the Swift package at tag `v1.0.0`.
+Read this once before cloning. Mobile demos ship a **bundled license** for the sample application / bundle id. Production apps need a new key from Identixia. [Initial commands](#-initial-commands) lists clone → place runtime → run → activate options.
 
 | Topic | Basic information |
 | --- | --- |
 | **Product** | On-device **ID document recognition SDK** for iOS (KYC / eKYC) |
 | **Documents** | Passport, national ID, driver license — OCR · passport MRZ · barcode / QR · optional document liveness |
-| **Runtime** | Sample links `docsdk.framework` beside `DocumentReader.xcodeproj`. Your app adds the Swift package at tag `v1.0.0` |
+| **Runtime zip** | `docsdk.framework` from Google Drive zip `PENDING` |
 | **Demo id / license** | `com.identixia.documentreader.app` — bundled demo license until **12 Aug 2027** |
 | **Activate** | Sample app: keep the demo id and bundled key. Your app: new applicationId / bundle id → [contact](#-contact) → call the SDK activate API (see docs). |
 | **Tools** | **Xcode 15+** · physical **iPhone** |
@@ -42,16 +42,20 @@ Read this once before cloning. Mobile demos ship a **bundled license** for the s
 
 ## <img src="https://api.iconify.design/lucide/terminal.svg?color=%230F766E" width="24" height="24" alt="" /> Initial commands
 
-Clone the sample and run it.
+Clone the sample, place the runtime, and run it.
 
-### <img src="https://img.shields.io/badge/-1-0F766E?style=for-the-badge" alt="" /> Clone
+### <img src="https://img.shields.io/badge/-1-0F766E?style=for-the-badge" alt="" /> Clone and place the runtime
 
 ```bash
 git clone https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS.git
 cd ID-Document-Recognition-Liveness-Detection-iOS
 ```
 
-Open `DocumentReader.xcodeproj`. It links `docsdk.framework` beside the project.
+Download the runtime zip (`PENDING`) and place:
+
+```text
+docsdk.framework
+```
 
 ### <img src="https://img.shields.io/badge/-2-0F766E?style=for-the-badge" alt="" /> Run the demo
 
@@ -93,11 +97,16 @@ Wait until Home status = **Ready**, then use Camera / Gallery (or the face mode 
 
 ---
 
-## <img src="https://api.iconify.design/lucide/package.svg?color=%230F766E" width="24" height="24" alt="" /> Install
+## <img src="https://api.iconify.design/lucide/package.svg?color=%230F766E" width="24" height="24" alt="" /> Runtime zip
 
-Your app, in Xcode: File → Add Package Dependencies → `https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS` → tag `v1.0.0`.
+> **Google Drive (single zip):** `PENDING`
 
-The sample does not use that package. Open `DocumentReader.xcodeproj`.
+Unzip `docsdk.framework` next to `DocumentReader.xcodeproj` at the repo root:
+
+```text
+docsdk.framework
+DocumentReader.xcodeproj
+```
 
 ---
 
@@ -105,9 +114,10 @@ The sample does not use that package. Open `DocumentReader.xcodeproj`.
 
 ```text
 1. git clone https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS.git
-2. Open DocumentReader.xcodeproj in Xcode 15+
-3. Set your Signing Team; keep bundle id com.identixia.documentreader.app for the demo license
-4. Run on a physical iPhone → Home Ready → Camera / Gallery
+2. Place docsdk.framework at the repo root (from the runtime zip)
+3. Open DocumentReader.xcodeproj in Xcode 15+
+4. Set your Signing Team; keep bundle id com.identixia.documentreader.app for the demo license
+5. Run on a physical iPhone → Home Ready → Camera / Gallery
 ```
 
 ---
@@ -122,9 +132,9 @@ The sample does not use that package. Open `DocumentReader.xcodeproj`.
 
 The code below shows how to use the license:
 
-https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/af362d5a2770bbf335b043462232132dadee1faf/DocumentReader/ViewController.swift#L10-L12
+[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/be88a3a057808ed15a4a1e74f5828a33df7d2dcd/DocumentReader/ViewController.swift#L14-L15](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/be88a3a057808ed15a4a1e74f5828a33df7d2dcd/DocumentReader/ViewController.swift#L14-L15)
 
-https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/af362d5a2770bbf335b043462232132dadee1faf/DocumentReader/ViewController.swift#L212-L216
+[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/be88a3a057808ed15a4a1e74f5828a33df7d2dcd/DocumentReader/ViewController.swift#L147-L149](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/be88a3a057808ed15a4a1e74f5828a33df7d2dcd/DocumentReader/ViewController.swift#L147-L149)
 
 Please [contact us](#-contact) to get a license for **your own app**.
 
@@ -132,7 +142,7 @@ Please [contact us](#-contact) to get a license for **your own app**.
 
 ## <img src="https://api.iconify.design/lucide/puzzle.svg?color=%230F766E" width="24" height="24" alt="" /> Use in your app
 
-Add the Swift package at tag `v1.0.0`, activate with your license string, init, then recognize. See [docs](https://docs.identixia.com). Do not ship the demo bundle id with a production key mismatch.
+Embed `docsdk.framework`, activate with your license string, init, then recognize. See [docs](https://docs.identixia.com). Do not ship the demo bundle id with a production key mismatch.
 
 Typical KYC path: Home Ready → Camera (or Gallery front/back) → one-scroll Result → Raw JSON for your backend mapping.
 
@@ -141,7 +151,18 @@ Typical KYC path: Home Ready → Camera (or Gallery front/back) → one-scroll R
 ## <img src="https://api.iconify.design/lucide/images.svg?color=%230F766E" width="24" height="24" alt="" /> Screenshots
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-result.png" width="720" alt="ID document recognition Gradio demo — front and back capture, fields, and cropped images" />
+<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-status.png" width="720" alt="Document result status" />
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-fields-code.png" width="420" alt="CODE fields" />
+<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-fields-visual.png" width="420" alt="VISUAL fields" />
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-images.png" width="420" alt="Cropped document images" />
+<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-checks-validity.png" width="420" alt="Validity checks" />
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/identixia-IDV/identixia-assets/main/screenshots/document-reader/desktop/demo-ui-checks-liveness.png" width="420" alt="Liveness checks" />
 </p>
 
 ---

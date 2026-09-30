@@ -12,7 +12,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "docsdk",
-            url: "https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/releases/download/v1.0.0/docsdk.xcframework.zip",
+            url: "https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/releases/latest/download/docsdk.xcframework.zip",
             checksum: "0000000000000000000000000000000000000000000000000000000000000000"
         ),
     ]
