@@ -132,9 +132,9 @@ DocumentReader.xcodeproj
 
 The code below shows how to use the license:
 
-[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/3fc1753f9efb58a6643d751d6a8de2d5cc793257/DocumentReader/ViewController.swift#L14-L15](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/3fc1753f9efb58a6643d751d6a8de2d5cc793257/DocumentReader/ViewController.swift#L14-L15)
+[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/927bb5f7cbc8a771d6ecda1c32cf074363367462/DocumentReader/ViewController.swift#L14-L15](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/927bb5f7cbc8a771d6ecda1c32cf074363367462/DocumentReader/ViewController.swift#L14-L15)
 
-[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/3fc1753f9efb58a6643d751d6a8de2d5cc793257/DocumentReader/ViewController.swift#L147-L149](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/3fc1753f9efb58a6643d751d6a8de2d5cc793257/DocumentReader/ViewController.swift#L147-L149)
+[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/927bb5f7cbc8a771d6ecda1c32cf074363367462/DocumentReader/ViewController.swift#L147-L149](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/927bb5f7cbc8a771d6ecda1c32cf074363367462/DocumentReader/ViewController.swift#L147-L149)
 
 Please [contact us](#-contact) to get a license for **your own app**.
 
