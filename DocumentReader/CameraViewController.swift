@@ -324,13 +324,14 @@ final class CameraViewController: UIViewController, AVCaptureVideoDataOutputSamp
             self.session.stopRunning()
             DocSdkSession.startGallery()
             let status = LicenseStatus.current()
-            let deny = status.denyMessage(wantRecognition: true, wantAuthenticity: true)
+            let deny = status.denyMessage(wantRecognition: AppSettings.wantRecognition, wantAuthenticity: AppSettings.wantAuthenticity)
             let json = DocSDK.recognize(
                 still,
                 authenticityMode: AppSettings.authenticityMode(licenseAllows: status.authenticity)
             )
             DispatchQueue.main.async {
-                guard let nav = self.presentingViewController as? UINavigationController else {
+                let presenter = self.presentingViewController
+                guard let nav = (presenter as? UINavigationController) ?? presenter?.navigationController else {
                     self.dismiss(animated: true)
                     return
                 }

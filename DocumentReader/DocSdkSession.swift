@@ -1,6 +1,10 @@
 import UIKit
 
 enum AppSettings {
+    /// Product capabilities — keep aligned with the Android sibling demo.
+    static let wantRecognition = true
+    static let wantAuthenticity = true
+
     static func authenticityMode(licenseAllows: Bool) -> String {
         licenseAllows ? "normal" : "none"
     }

@@ -162,7 +162,7 @@ final class GalleryViewController: UIViewController, UIImagePickerControllerDele
             let t0 = CFAbsoluteTimeGetCurrent()
             DocSdkSession.startGallery()
             let status = LicenseStatus.current()
-            let deny = status.denyMessage(wantRecognition: true, wantAuthenticity: true)
+            let deny = status.denyMessage(wantRecognition: AppSettings.wantRecognition, wantAuthenticity: AppSettings.wantAuthenticity)
             let json = DocSDK.recognizeFront(
                 front,
                 back: back,

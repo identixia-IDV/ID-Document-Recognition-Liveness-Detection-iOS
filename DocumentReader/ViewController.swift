@@ -9,7 +9,7 @@ import UIKit
 class ViewController: UIViewController {
     /// Demo license for bundle id `com.identixia.documentreader.app`.
     private let licenseKey =
-        "pyyR2AECGxM88KoV67kjyUExX1uq3nOlD0x6wYmAdcdxHmEAAABH0F0Fpfsrb2kutZhsGTkFIsIlA5yVxSr7oDJ8PdaqJwG8RmkUXj/Iy7rZGrmB76Rk4/wTXtU8RYM8BB7Hfth4YcoiSugRW4gnu9BUvSuXurTLj1d5vrux8px4Zywydd+KZwAwZQIwJKDo8577/v8VeG/+tdQTAMSPt4W/PEIOvFJJSXKaCOwO4wMhoxrtvVmfrlfLwjI1AjEA3rRazlaPTM4Oi21gKYpw6B0ll5MxEyrKdKO7QbUmxwL/if8DfL8ZwBwJI85ByH8X   "
+        "pyyR2AECGxM88KoV67kjyUExX1uq3nOlD0x6wYmAdcdxHmEAAABH0F0Fpfsrb2kutZhsGTkFIsIlA5yVxSr7oDJ8PdaqJwG8RmkUXj/Iy7rZGrmB76Rk4/wTXtU8RYM8BB7Hfth4YcoiSugRW4gnu9BUvSuXurTLj1d5vrux8px4Zywydd+KZwAwZQIwJKDo8577/v8VeG/+tdQTAMSPt4W/PEIOvFJJSXKaCOwO4wMhoxrtvVmfrlfLwjI1AjEA3rRazlaPTM4Oi21gKYpw6B0ll5MxEyrKdKO7QbUmxwL/if8DfL8ZwBwJI85ByH8X"
 
     private let licenseChip = UILabel()
     private let statusChip = UILabel()
@@ -213,7 +213,7 @@ class ViewController: UIViewController {
         updateStatus("Loading…", color: IXColor.statusInfo)
         DispatchQueue.global(qos: .userInitiated).async {
             let machine = DocSDK.getMachineCode()
-            let act = Int(DocSDK.setActivation(self.licenseKey))
+            let act = Int(DocSDK.setActivation(self.licenseKey.trimmingCharacters(in: .whitespacesAndNewlines)))
             let initRc = act == 0 ? Int(DocSDK.initSDK()) : act
             self.sdkReady = initRc == 0
             NSLog(
@@ -260,7 +260,8 @@ class ViewController: UIViewController {
         guard ensureReady() else { return }
         let vc = CameraViewController()
         vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        // Present from the nav so Camera can push Result onto the same stack.
+        (navigationController ?? self).present(vc, animated: true)
     }
 
     @objc private func openGallery() {
@@ -278,7 +279,7 @@ class ViewController: UIViewController {
             let t0 = CFAbsoluteTimeGetCurrent()
             DocSdkSession.startGallery()
             let status = LicenseStatus.current()
-            let deny = status.denyMessage(wantRecognition: true, wantAuthenticity: true)
+            let deny = status.denyMessage(wantRecognition: AppSettings.wantRecognition, wantAuthenticity: AppSettings.wantAuthenticity)
             let json = DocSDK.recognize(
                 image,
                 authenticityMode: AppSettings.authenticityMode(licenseAllows: status.authenticity)
