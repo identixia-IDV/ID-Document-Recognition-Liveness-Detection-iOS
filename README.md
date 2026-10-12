@@ -140,9 +140,9 @@ Sample id:
 
 Set the key, then activate:
 
-[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/main/DocumentReader/ViewController.swift#L11-L12](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/main/DocumentReader/ViewController.swift#L11-L12)
+[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/85ad8b009fb58552/DocumentReader/ViewController.swift#L11-L12](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/85ad8b009fb58552/DocumentReader/ViewController.swift#L11-L12)
 
-[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/main/DocumentReader/ViewController.swift#L216-L216](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/main/DocumentReader/ViewController.swift#L216-L216)
+[https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/85ad8b009fb58552/DocumentReader/ViewController.swift#L216-L216](https://github.com/identixia-IDV/ID-Document-Recognition-Liveness-Detection-iOS/blob/85ad8b009fb58552/DocumentReader/ViewController.swift#L216-L216)
 
 ## <img src="https://api.iconify.design/lucide/images.svg?color=%230F766E" width="24" height="24" alt="" /> Screenshots
 
